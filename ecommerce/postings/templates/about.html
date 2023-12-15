@@ -7,7 +7,20 @@
         margin: 0 auto;
       }
 </style>
+<style>
+    .price-bold {
+        font-size: 1.2em; 
+        font-weight: bold;
+    }
 
+    /* Add the new CSS style for the "Show Details" link */
+    .card-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,21 +34,9 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    {% load static %}
+    
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-    <style>
-        .price-bold {
-            font-size: 1.2em; 
-            font-weight: bold;
-        }
-
-        /* Add the new CSS style for the "Show Details" link */
-        .card-link {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-    </style>
+    
 </head>
 <body>
     <!-- Navigation-->
@@ -109,6 +110,10 @@
                                         <div class="price">
                                             <span class="price-bold">${{ product.price }}</span>
                                         </div>
+                                        <div class="text-center mt-3">
+                                            <!-- Update the anchor tag to link to the detail page of the related product -->
+                                            <a class="btn btn-outline-dark" href="{% url 'detail' product.id %}">View details</a>
+                                          </div>
                                     </div>
                                 </div>
                             </div>

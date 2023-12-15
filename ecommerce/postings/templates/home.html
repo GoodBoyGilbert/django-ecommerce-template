@@ -18,7 +18,7 @@
         color: inherit;
     }
 </style>
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +36,7 @@
         <meta name="author" content="" />
         <title>Homepage</title>
         
-        {% load static %}
+        
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     
     </head>
@@ -58,17 +58,17 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
                 </div>
             </div>
         </nav>
         <!-- Header-->
-        {% load static %}
+        
 
 <header class="bg-dark py-5" style="background-image: url('{% static 'banner/banner.jpg' %}'); background-size: cover; background-position: center;">
     <div class="container px-4 px-lg-5 my-5">

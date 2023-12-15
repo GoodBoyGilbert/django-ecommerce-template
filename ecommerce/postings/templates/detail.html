@@ -11,6 +11,18 @@
         text-decoration: none;
         color: inherit;
     }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .card-link:hover {
+        text-decoration: none;
+        color: inherit;
+    }
 </style>
 <!DOCTYPE html>
 {% load static %}
@@ -20,7 +32,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Item</title>
+        <title>{{ product.name }}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -92,33 +104,42 @@
 </section>
 
 <!-- Related items section -->
-<section class="py-5 bg-light">
-    <div class="container px-4 px-lg-5 mt-5">
-      <h2 class="fw-bolder mb-4">New products</h2>
-      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        {% for related_product in newest_products %}
-        <div class="col mb-5">
-          <div class="card text-decoration-none" style="cursor: pointer;" onclick="window.location='{% url 'detail' related_product.id %}'">
-            <!-- Place the image directly inside the card-body with a specific height -->
-            <div class="card-img-top mb-2" style="height: 200px; background-image: url('{{ related_product.image.url }}'); background-size: cover; background-position: center;"></div>
-            <div class="card-body p-4">
-              <!-- Product details for related products -->
-              <div class="text-center">
-                <h5 class="fw-bolder">{{ related_product.name }}</h5>
-                <div class="price-bold">${{ related_product.price }}</div>
-              </div>
-              <!-- Move the button inside the card-body -->
-              <div class="text-center mt-3">
-                <!-- Update the anchor tag to link to the detail page of the related product -->
-                <a class="btn btn-outline-dark" href="{% url 'detail' related_product.id %}">View details</a>
-              </div>
+{% if products %}
+        <div class="container px-4 px-lg-5 mt-5">
+            <h1 class="center mb-5">New products</h1>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                {% for product in products %}
+                    <div class="col mb-5">
+                        <a class="card-link" href="{% url 'detail' product.id %}">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                {% if product.image %}
+                                    <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% endif %}
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">{{ product.name }}</h5>
+                                        <!-- Product price with styling -->
+                                        <div class="price">
+                                            <span class="price-bold">${{ product.price }}</span>
+                                        </div>
+                                        <div class="text-center mt-3">
+                                            <!-- Update the anchor tag to link to the detail page of the related product -->
+                                            <a class="btn btn-outline-dark" href="{% url 'detail' product.id %}">View details</a>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
-          </div>
         </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
+    {% else %}
+        <p>No products available.</p>
+    {% endif %}
   
 
 

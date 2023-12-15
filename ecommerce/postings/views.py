@@ -13,10 +13,9 @@ def detail(request, product_id):
     # Fetch the product based on the product_id
     product = get_object_or_404(Product, pk=product_id)
     
-    # Fetch the newest products for the related section
-    newest_products = Product.objects.order_by('-id')[:4]
-
-    return render(request, "detail.html", {'product': product, 'newest_products': newest_products})
+    products = Product.objects.order_by("id")[:4]
+    
+    return render(request, "detail.html", {'product': product, 'products': products})
 
 def about(request):
     products = Product.objects.all()

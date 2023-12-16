@@ -1,20 +1,3 @@
-<style>
-    .price-bold {
-        font-size: 1.2em; 
-        font-weight: bold;
-    }
-
-    /* Add the new CSS style for the "Show Details" link */
-    .card-link {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-    }
-    .card-link:hover {
-        text-decoration: none;
-        color: inherit;
-    }
-</style>
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -22,9 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eWatchStore</title>
+    <link rel="icon" type="image/x-icon" href="{% static "assets/favicon.ico"%}" />
+    <style>
+        .price-bold {
+            font-size: 1.2em; 
+            font-weight: bold;
+        }
+    
+        /* Add the new CSS style for the "Show Details" link */
+        .card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .card-link:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
 </head>
 
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -33,7 +33,7 @@
         <meta name="author" content="" />
         <title>Homepage</title>
         
-        
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     
     </head>
@@ -64,7 +64,6 @@
                 </div>
             </div>
         </nav>
-        <!-- Header-->
         
 
 <header class="bg-dark py-5" style="background-image: url('{% static 'banner/banner.jpg' %}'); background-size: cover; background-position: center;">
